@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './home.css';
+import './home.css';
 import meli from '../../meli.png';
 import { useHistory } from 'react-router';
 
