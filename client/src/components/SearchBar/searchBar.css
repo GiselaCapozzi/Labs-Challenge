@@ -2,7 +2,7 @@
     background: #fff15a;
     width: 100%;
     object-fit: cover;
-    position: absolute;
+    /* position: absolute; */
     display: grid;
     justify-content: center;
     align-items: center;
@@ -13,6 +13,7 @@
     width: 15rem;
     padding-bottom: 5px;
     padding-top: 3px;
+    cursor: pointer;
 }
 
 .imagen {

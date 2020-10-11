@@ -1,0 +1,59 @@
+.tarjeta {
+    background: rgb(243, 237, 237);
+    border: 1px black solid;
+    margin: 128px;
+    box-shadow: 2px 2px 4px rgb(43, 42, 42);
+    width: 330px;
+    height: 400px;
+    word-wrap: break-word;
+}
+
+.foto img {
+    width: 326px;
+    height: 220px;
+}
+
+.foto .articulo {
+    object-fit: cover;
+}
+
+.titulo {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 900;
+    color: #000;
+    text-align: center;
+    margin: 5px;
+    font-size: 23px;
+}
+
+.precio {
+    color: rgb(26, 24, 24);
+    font-size: 18px;
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    padding-left: 190px;
+}
+
+p {
+    color: black;
+    font-size: 15px;
+    margin-top: 0;
+}
+
+.apretar {
+    background: #fff15a;
+    width: 100%;
+    border: 2px solid grey;
+    align-self: auto;
+    cursor: pointer;
+    text-align: center;
+    padding-top: 3px;
+    padding-bottom: 4px;
+    font-weight: 700;
+}
+
+.condicion {
+    font-size: 15px;
+    float: left;
+
+}
