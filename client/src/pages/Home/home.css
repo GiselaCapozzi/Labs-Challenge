@@ -47,6 +47,7 @@
     outline-color: rgb(236, 227, 227);
     outline-offset: 80px;
     text-shadow: 1px 1px 6px #fff;
+    font-weight: 500;
 }
 
 .boton::after {

@@ -1,0 +1,96 @@
+.rectangulo {
+    background: #fff15a;
+    width: 100%;
+    object-fit: cover;
+    /* position: absolute; */
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 3px 3px 7px rgb(100, 100, 100);
+}
+
+.mercadoLibre {
+    width: 15rem;
+    padding-bottom: 5px;
+    padding-top: 3px;
+    cursor: pointer;
+}
+
+.imagen {
+    float: left;
+    padding-right: auto;
+}
+
+.formulario {
+    margin-top: 7px;
+    margin-bottom: 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.menu {
+    margin-top: 34px;
+    margin-right: 900px;
+}
+
+form {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.searchBar {
+    height: 2rem;
+    width: 300px;
+    border: 2px solid rgb(184, 182,182);
+    overflow: hidden;
+    border-radius: 99px;
+    box-shadow: 5px 5px 10px #d5d5d5;    
+    margin: 0 2rem;
+}
+
+input {
+    margin: 0;
+    width: 270px;
+    width: -moz-available;
+    border: none;
+    text-align: center;
+    padding: 2px;
+}
+
+input:focus,
+input.form-control:focus {
+    outline: none !important;
+    outline-width: 0 !important;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+.presionar {
+    background: #fff15a;
+    cursor: pointer;
+    border: none;
+    height: auto;
+    width: 45px;
+}
+
+.presionar i {
+    padding: 0 0.5rem;
+}
+
+.presionar i:focus {
+    outline: none;
+}
+
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
