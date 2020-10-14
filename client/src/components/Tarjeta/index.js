@@ -6,7 +6,6 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
-import { yellow } from '@material-ui/core/colors';
 import Modal from 'react-modal';
 import styled from 'styled-components';
 import './card.css';
@@ -28,26 +27,50 @@ const useStyles = makeStyles({
         display: 'flex',
         marginLeft: 300,
         cursor: 'pointer',
+        color: '#000',
+        fontWeight: 700,
+    },
+    content: {
+        background: '#ffd54f'
+    },
+    titulo: {
+        fontWeight: 800,
+        fontFamily: 'Verdana, Geneva, sans-serif'
+    },
+    precio: {
+        display: 'flex',
+        float: 'right',
+        margin: 23,
+        fontWeight: 700
+    },
+    stock: {
+        marginTop: 50,
+        display: 'flex',
+        float: 'left',
+        fontWeight: 700,
+        color: 'grey'
     }
 })
 const customStyles = {
     content: {
-        backgroundColor: "#eee"
+        backgroundColor: "#ffccbc",
     }
 }
 
+const ModalContent = styled.div `
+    height: 100%;
+    width: 100%;
+    display: 'flex',
 
-const Tarjeta = ({title, price, thumbnail, sold_quantity, codition }) => {
+    h1 {
+        color: #5c3aff;
+    }
+`;
+
+const Tarjeta = ({pictures, title, price, thumbnail, sold_quantity, codition }) => {
     const estilos = useStyles();
     const [open, setOpen] = useState(false);
 
-    const ModalContent = styled.div `
-        height: 100%;
-        width: 100%;
-        h1 {
-            color: #5c3aff;
-        }
-    `;
 
     const openModal = () => {
         setOpen(true); 
@@ -58,7 +81,7 @@ const Tarjeta = ({title, price, thumbnail, sold_quantity, codition }) => {
     }
 
     return (
-        <div>
+        <div className = "tarjeta">
             <Card className={estilos.root}>
                 <CardMedia
                     className={estilos.image}
@@ -70,14 +93,22 @@ const Tarjeta = ({title, price, thumbnail, sold_quantity, codition }) => {
                     onClick={openModal}
                 >+</Avatar>
                 </CardMedia>
-                <CardContent>
-                    <Typography>
+                <CardContent
+                    className = {estilos.content}
+                >
+                    <Typography
+                        className = {estilos.titulo}
+                    >
                         {title}
                     </Typography>
-                    <Typography>
+                    <Typography
+                        className = {estilos.precio}
+                    >
                         ${price}
                     </Typography>
-                    <Typography>
+                    <Typography
+                        className = {estilos.stock}
+                    >
                         Stock Disponible: {sold_quantity}
                     </Typography>
                 </CardContent>
@@ -91,7 +122,7 @@ const Tarjeta = ({title, price, thumbnail, sold_quantity, codition }) => {
                         style = {customStyles}
                         >
                         <ModalContent>
-                            <h1> Funciona!! </h1>
+                           
                         </ModalContent>
                     </Modal>
                 </div>

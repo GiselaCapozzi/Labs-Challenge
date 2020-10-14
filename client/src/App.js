@@ -15,6 +15,7 @@ const [pagina, setPagina] = useState(0);
 const limite = 30;
   
 const onSearch = (search) => {
+  console.log(search)
   setQuery(search);
   fetch(`http://localhost:4000/api/search?q=${search}`)
     .then(res => res.json())
@@ -29,6 +30,7 @@ const onSearch = (search) => {
 
 useEffect(() => {
   onSearch("camara")
+  // eslint-disable-next-line react-hooks/exhaustive-deps
 },[]);
 
 const MayMen = productos.sort((a,b) => {
