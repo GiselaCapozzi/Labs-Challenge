@@ -1,14 +1,17 @@
-/* .tarjeta {
+.tarjeta {
     background: rgb(243, 237, 237);
     border: 1px black solid;
-    margin: 128px;
+    margin: 25px;
+    padding: 12px;
     box-shadow: 2px 2px 4px rgb(43, 42, 42);
-    width: 330px;
-    height: 400px;
+    width: auto;
+    height: auto;
     word-wrap: break-word;
+    display: flex;
+    justify-content: center;
 }
 
-.foto img {
+/* .foto img {
     width: 326px;
     height: 220px;
 }
@@ -56,5 +59,4 @@ p {
     font-size: 15px;
     float: left;
 
-}
- */
+} */
