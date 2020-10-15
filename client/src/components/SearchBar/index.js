@@ -4,16 +4,17 @@ import meli from '../../meli.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faBars } from '@fortawesome/free-solid-svg-icons'
 import { useHistory } from 'react-router';
+import Menu from '../../pages/Menu';
 
 const SearchBar = ({ onSearch }) => {
     const [category, setCategory] = useState('');
     const history = useHistory();
-
+    
     const onChange = (e) => {
         setCategory(e.target.value);
         console.log(e.target.value);
     };
-
+    
     const onSubmit = (e) => {
         e.preventDefault();
         onSearch(category);
@@ -32,7 +33,9 @@ const SearchBar = ({ onSearch }) => {
             </div>
 
             <div className="formulario">
-                <FontAwesomeIcon className = "menu" icon = {faBars} />
+                <p>
+                {/* <FontAwesomeIcon className = "menu" icon = {faBars} /> */}
+                </p>
                 <form
                     onSubmit={onSubmit}
                     className="searchBar"

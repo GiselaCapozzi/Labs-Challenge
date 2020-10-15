@@ -1,24 +1,28 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Pagination from '@material-ui/lab/Pagination';
-import { ThemeConsumer } from 'styled-components';
 
-const useStyles = makeStyles({
-    root: {
-        '& > *': {
-            marginTop: ThemeConsumer.spacing(2),
-        },
+const useStyles = makeStyles((theme) => ({
+  root: {
+    '& > *': {
+      marginTop: theme.spacing(2),
     },
-});
+    paginacion: {
+        background: '#ff9800',
+        color: '#000'
+    }
+  },
+}));
 
-const Paginacion = ({contador, page, handleChange}) => {
+const Paginacion = ({contador, pagina, handleChange}) => {
     const estilos = useStyles();
     return (
         <div className = {estilos.root}>
             <Pagination 
                 count = {contador}
-                page = {page}
+                page = {pagina}
                 onChange = {handleChange}
+                className = {estilos.paginacion}
             />
         </div>
     );
