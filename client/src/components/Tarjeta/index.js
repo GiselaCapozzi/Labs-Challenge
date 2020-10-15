@@ -67,7 +67,7 @@ const ModalContent = styled.div `
     }
 `;
 
-const Tarjeta = ({pictures, title, price, thumbnail, sold_quantity, codition }) => {
+const Tarjeta = ({pictures, title, price, thumbnail, sold_quantity, condition }) => {
     const estilos = useStyles();
     const [open, setOpen] = useState(false);
 
@@ -110,6 +110,9 @@ const Tarjeta = ({pictures, title, price, thumbnail, sold_quantity, codition }) 
                         className = {estilos.stock}
                     >
                         Stock Disponible: {sold_quantity}
+                    </Typography>
+                    <Typography>
+                        Condicion: {condition}
                     </Typography>
                 </CardContent>
                 <CardActions>
