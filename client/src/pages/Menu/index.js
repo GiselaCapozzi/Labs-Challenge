@@ -25,7 +25,7 @@ const useStyles = makeStyles({
     }
 });
 
-const Menu = ({resultado, nuevo, usado, sinEspecificar}) => {
+const Menu = ({resultado, nuevo, usado, sinEspecificar, ordena}) => {
     const estilos = useStyles();
     const [state, setState] = useState({
         menu: false,
@@ -81,7 +81,7 @@ const Menu = ({resultado, nuevo, usado, sinEspecificar}) => {
                     <SentimentDissatisfiedIcon />
                     SIN ESPECIFICAR
                 </ListItem>
-                <ListItem button >
+                <ListItem button onClick = {ordena}>
                     <ImportExport />
                     ORDENAR POR PRECIO
                 </ListItem>
