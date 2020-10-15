@@ -17,27 +17,28 @@ const Cards = ({ resultado }) => {
     console.log(resultado)
     const [listarProductos, setListarProductos] = useState([]);
     const [ordenar, setOrdenar] = useState([]);
+    const [precio, setPrecio] = useState(true);
     const estilo = useStyles();
 
     const nuevo = () => {
         setListarProductos([]);
         var nuevo = [];
         for (let i = 0; i < resultado.length; i++) {
-            if(resultado[i].condition === 'new') {
+            if (resultado[i].condition === 'new') {
                 nuevo.push(resultado[i]);
                 setListarProductos(nuevo);
                 console.log(nuevo)
             }
         }
-        if(nuevo.length === 0) {
+        if (nuevo.length === 0) {
             swal("No se pudo encontrar esa condición")
         }
     }
 
     const usado = () => {
-        var usado =  [];
-        for(let i = 0; i < resultado.length; i++) {
-            if(resultado[i].condition === 'used') {
+        var usado = [];
+        for (let i = 0; i < resultado.length; i++) {
+            if (resultado[i].condition === 'used') {
                 usado.push(resultado[i]);
                 setListarProductos(usado);
             }
@@ -49,8 +50,8 @@ const Cards = ({ resultado }) => {
 
     const sinEspecificar = () => {
         var sinEspecificar = [];
-        for(let i = 0; i < resultado.length; i++) {
-            if(resultado[i].condition === 'not_specified') {
+        for (let i = 0; i < resultado.length; i++) {
+            if (resultado[i].condition === 'not_specified') {
                 sinEspecificar.push(resultado[i]);
                 setListarProductos(sinEspecificar);
             }
@@ -60,47 +61,73 @@ const Cards = ({ resultado }) => {
         }
     }
 
+    const ordena = () => {
+        if (precio) {
+            setOrdenar(resultado.reverse());
+            return setPrecio(false) 
+        }else{
+            return setPrecio(true)
+        }
+    }
+
     useEffect(() => {
         setListarProductos(resultado);
     }, [resultado]);
 
-    if (!resultado) {
-        return (
-            <div className="cards">No se encontro producto...</div>
-        )
-    } else {
+    if (resultado) {
         return (
             <div className="cards">
-                <Menu 
-                    resultado = {resultado}
-                    nuevo = {nuevo}
-                    usado = {usado}
-                    sinEspecificar = {sinEspecificar}
+                <Menu
+                    resultado={resultado}
+                    nuevo={nuevo}
+                    usado={usado}
+                    sinEspecificar={sinEspecificar}
+                    ordena={ordena}
                 />
-                <Grid 
-                    container 
+                <Grid
+                    container
                     justify="center"
-                    className = {estilo.root}
+                    className={estilo.root}
                 >
-                {
-                    listarProductos.map((e) => (
-                        <Grid item md={4} key={e.id}>
-                            <Tarjeta
-                                id={e.id}
-                                title={e.title}
-                                price={e.price}
-                                thumbnail={e.thumbnail.replace("I.jpg", "B.jpg")}
-                                sold_quantity={e.sold_quantity}
-                                condition={e.condition}
-                                // pictures = {e.pictures}
-                            />
-                        </Grid>
-                    ))
-                }
+                    {
+                        precio === true ? (
+                            listarProductos.map((e) => (
+                                <Grid item md={4} key={e.id}>
+                                    <Tarjeta
+                                        id={e.id}
+                                        title={e.title}
+                                        price={e.price}
+                                        thumbnail={e.thumbnail.replace("I.jpg", "B.jpg")}
+                                        sold_quantity={e.sold_quantity}
+                                        condition={e.condition}
+                                    // pictures = {e.pictures}
+                                    />
+                                </Grid>
+                            ))
+                        ) : precio === false ? (
+                            listarProductos.map(e => (
+                                <Grid item md={4} key={e.id}>
+                                    <Tarjeta
+                                        id={e.id}
+                                        title={e.title}
+                                        price={e.price}
+                                        thumbnail={e.thumbnail.replace('I.jpg', 'B.jpg')}
+                                        sold_quantity={e.sold_quantity}
+                                        condition={e.condition}
+                                    />
+                                </Grid>
+                            ))
+                        ) : (
+                                    <div>..............</div>
+                                )}
                 </Grid>
             </div>
         );
-    }
+    } else {
+    
+    return (
+        <div className="cards">No se encontro producto...</div>
+    )}
 };
 
 export default Cards;
