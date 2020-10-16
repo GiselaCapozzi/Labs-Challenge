@@ -11,6 +11,13 @@
     justify-content: center;
 }
 
+@media (max-width: 500px) {
+    .tarjeta{
+        width: 220px;
+        height: auto;
+    }
+}
+
 /* .foto img {
     width: 326px;
     height: 220px;

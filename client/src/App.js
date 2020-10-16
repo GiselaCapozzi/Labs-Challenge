@@ -14,6 +14,7 @@ const [query, setQuery] = useState('');
 const [contador, setContador] = useState(0);
 const [productos, setProductos] = useState([]);
 const limite = 30;
+console.log(pagina)
   
 const onSearch = (search) => {
   console.log(search)
@@ -31,6 +32,7 @@ const onSearch = (search) => {
       console.log(error);
     });
 };
+
 
 useEffect(() => {
   onSearch("camara")
@@ -51,12 +53,13 @@ const handleChange = (value) => {
   setInicio(select);
   onSearch(query);
 };
-  return (
-    <div className="App">
+return (
+  <div className="App">
       <Routes />
       <Route path = "/products" render = {() => <SearchBar onSearch = {onSearch}/>}/>
       <Route path = '/products' render = {() => <Cards resultado = {MayMen} />}/>
-      <Paginacion count={contador} page={pagina} onChange={handleChange} />
+      <Route path = '/products' render = {() => <Paginacion count={contador} page={pagina} onChange={handleChange}/>}/>
+      {/* <Paginacion path = '/products'  /> */}
     </div>
   );
 }

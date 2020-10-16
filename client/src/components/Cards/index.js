@@ -14,7 +14,7 @@ const useStyles = makeStyles({
 });
 
 const Cards = ({ resultado }) => {
-    console.log(resultado)
+    console.log(resultado[0])
     const [listarProductos, setListarProductos] = useState([]);
     const [ordenar, setOrdenar] = useState([]);
     const [precio, setPrecio] = useState(true);
@@ -63,10 +63,12 @@ const Cards = ({ resultado }) => {
 
     const ordena = () => {
         if (precio) {
+            setPrecio(false);
             setOrdenar(resultado.reverse());
-            return setPrecio(false) 
+            return precio; 
         }else{
-            return setPrecio(true)
+            setPrecio(true);
+            return precio;
         }
     }
 
@@ -90,7 +92,7 @@ const Cards = ({ resultado }) => {
                     className={estilo.root}
                 >
                     {
-                        precio === true ? (
+                        listarProductos && precio ? (
                             listarProductos.map((e) => (
                                 <Grid item md={4} key={e.id}>
                                     <Tarjeta
@@ -104,7 +106,7 @@ const Cards = ({ resultado }) => {
                                     />
                                 </Grid>
                             ))
-                        ) : precio === false ? (
+                        ) : listarProductos && precio === false ? (
                             listarProductos.map(e => (
                                 <Grid item md={4} key={e.id}>
                                     <Tarjeta
