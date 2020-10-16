@@ -6,11 +6,9 @@ const useStyles = makeStyles((theme) => ({
   root: {
     '& > *': {
       marginTop: theme.spacing(2),
+      display: "flex",
+      justifyContent: "center",
     },
-    paginacion: {
-        background: '#ff9800',
-        color: '#000'
-    }
   },
 }));
 
@@ -22,7 +20,8 @@ const Paginacion = ({contador, pagina, handleChange}) => {
                 count = {contador}
                 page = {pagina}
                 onChange = {handleChange}
-                className = {estilos.paginacion}
+                className = 'paginacion'
+                color = 'primary'
             />
         </div>
     );

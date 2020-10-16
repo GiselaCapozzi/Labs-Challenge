@@ -6,7 +6,6 @@ import Button from '@material-ui/core/Button';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
 import FiberNewIcon from '@material-ui/icons/FiberNew';
 import Battery20 from '@material-ui/icons/Battery20';
 import SentimentDissatisfiedIcon from '@material-ui/icons/SentimentDissatisfied';
@@ -70,19 +69,27 @@ const Menu = ({resultado, nuevo, usado, sinEspecificar, ordena}) => {
             </List> */}
             <List>
                 <ListItem button onClick = {() => nuevo('new')}>
+                    <ListItemIcon>
                     <FiberNewIcon />
+                    </ListItemIcon>
                     NUEVO
                 </ListItem>
                 <ListItem button onClick = {() => usado('used')}>
+                    <ListItemIcon>
                     <Battery20 />
+                    </ListItemIcon>
                     USADO
                 </ListItem>
                 <ListItem button onClick = {() => sinEspecificar('not_specified')}>
+                    <ListItemIcon>
                     <SentimentDissatisfiedIcon />
+                    </ListItemIcon>
                     SIN ESPECIFICAR
                 </ListItem>
                 <ListItem button onClick = {ordena}>
+                    <ListItemIcon>
                     <ImportExport />
+                    </ListItemIcon>
                     ORDENAR POR PRECIO
                 </ListItem>
             </List>

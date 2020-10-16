@@ -6,6 +6,8 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
+import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
+import Favorite from '@material-ui/icons/Favorite';
 import Modal from 'react-modal';
 import styled from 'styled-components';
 import './card.css';
@@ -49,6 +51,12 @@ const useStyles = makeStyles({
         float: 'left',
         fontWeight: 700,
         color: 'grey'
+    },
+    condition: {
+        display: 'flex',
+        float: 'right',
+        marginRight: 30,
+        marginTop: 10
     }
 })
 const customStyles = {
@@ -67,18 +75,20 @@ const ModalContent = styled.div `
     }
 `;
 
-const Tarjeta = ({pictures, title, price, thumbnail, sold_quantity, condition }) => {
+const Tarjeta = ({title, price, thumbnail, sold_quantity, condition }) => {
+
     const estilos = useStyles();
     const [open, setOpen] = useState(false);
+    // const [mouse, setMouse] = useState(false);
 
 
-    const openModal = () => {
-        setOpen(true); 
-    }
+    // const openModal = () => {
+    //     setOpen(true); 
+    // }
 
-    const closeModal = () => {
-        setOpen(false);
-    }
+    // const closeModal = () => {
+    //     setOpen(false);
+    // }
 
     return (
         <div className = "tarjeta">
@@ -90,8 +100,9 @@ const Tarjeta = ({pictures, title, price, thumbnail, sold_quantity, condition })
                 >
                    <Avatar
                     className = {estilos.avatar}
-                    onClick={openModal}
-                >+</Avatar>
+                >
+                    <Favorite />                    
+                </Avatar>
                 </CardMedia>
                 <CardContent
                     className = {estilos.content}
@@ -111,14 +122,16 @@ const Tarjeta = ({pictures, title, price, thumbnail, sold_quantity, condition })
                     >
                         Stock Disponible: {sold_quantity}
                     </Typography>
-                    <Typography>
+                    <Typography
+                        className = {estilos.condition}
+                    >
                         Condicion: {condition}
                     </Typography>
                 </CardContent>
                 <CardActions>
                 </CardActions>
             </Card>
-                <div>
+                {/* <div>
                     <Modal 
                         isOpen={open} 
                         onRequestClose={closeModal}
@@ -128,7 +141,7 @@ const Tarjeta = ({pictures, title, price, thumbnail, sold_quantity, condition })
                            
                         </ModalContent>
                     </Modal>
-                </div>
+                </div> */}
         </div>
     );
 };

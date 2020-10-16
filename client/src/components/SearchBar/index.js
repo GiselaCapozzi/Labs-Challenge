@@ -35,6 +35,7 @@ const SearchBar = ({ onSearch }) => {
             <div className="formulario">
                 <p>
                 {/* <FontAwesomeIcon className = "menu" icon = {faBars} /> */}
+
                 </p>
                 <form
                     onSubmit={onSubmit}
@@ -48,6 +49,7 @@ const SearchBar = ({ onSearch }) => {
                         id="buscador"
                         value={category}
                         onChange={onChange}
+                        // onClick = {() => history.push(`/products/search?query=${category}`)}
                     />
                     <button
                         className="presionar"

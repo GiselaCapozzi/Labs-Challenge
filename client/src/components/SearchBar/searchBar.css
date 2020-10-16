@@ -2,7 +2,7 @@
     background: #fff15a;
     width: 100%;
     object-fit: cover;
-    /* position: absolute; */
+
     display: grid;
     justify-content: center;
     align-items: center;
@@ -24,8 +24,9 @@
 .formulario {
     margin-top: 7px;
     margin-bottom: 15px;
-    display: grid;
+    display: flex;
     grid-template-columns: 1fr 1fr;
+    justify-content: center;
 }
 
 .menu {
@@ -94,3 +95,23 @@ input.form-control:focus {
 .col-10 {width: 83.33%;}
 .col-11 {width: 91.66%;}
 .col-12 {width: 100%;}
+
+@media(max-width:400px) {
+    .rectangulo {
+        width: 500px;
+    }
+
+    .searchBar {
+        width: 180px;
+        display: flex;
+    }
+
+    .mercadoLibre {
+        width: 100px;
+    }
+
+    .formulario {
+        display: flex;
+        justify-content: center;
+    }
+}
